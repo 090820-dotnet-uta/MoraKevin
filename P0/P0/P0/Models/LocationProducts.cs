@@ -7,6 +7,7 @@ namespace P0.Models
 {
     public class LocationProducts
     {
+        public int LocationProductsID { get; set; }
         public int LocationID { get; set; }
         public int ProductID { get; set; }
         public int Inventory { get; set; }

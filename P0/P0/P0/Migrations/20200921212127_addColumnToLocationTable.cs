@@ -2,21 +2,21 @@
 
 namespace P0.Migrations
 {
-    public partial class updateProducts : Migration
+    public partial class addColumnToLocationTable : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.AddColumn<string>(
-                name: "Type",
-                table: "Products",
+                name: "Name",
+                table: "Locations",
                 nullable: true);
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropColumn(
-                name: "Type",
-                table: "Products");
+                name: "Name",
+                table: "Locations");
         }
     }
 }

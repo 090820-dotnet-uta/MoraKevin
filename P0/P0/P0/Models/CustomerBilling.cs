@@ -7,6 +7,7 @@ namespace P0.Models
 {
     public class CustomerBilling
     {
+        public int CustomerBillingID { get; set; }
         public int CustomerID{ get; set; }
         public int BillingID { get; set; }
         public string Main { get; set; }

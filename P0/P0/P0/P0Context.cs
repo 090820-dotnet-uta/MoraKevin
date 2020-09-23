@@ -35,7 +35,6 @@ namespace P0
         public List<Product> ProductsList { get; set; }
         public List<Shipping> ShippingInformationList { get; set; }
         public List<UserAccount> UserAccountsList { get; set; }
-        public List<Product> TempShoppingCart { get; set; }
         public List<Product> ShoppingCart { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -45,27 +44,6 @@ namespace P0
                 optionsBuilder.UseSqlServer("Data Source=DESKTOP-1N48109;Initial Catalog=P0;Integrated Security=True");
                 base.OnConfiguring(optionsBuilder);
             }
-        }
-
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            // Sets Composite Primary Keys for tabkes
-            // CustomerBuilding CPK
-            modelBuilder.Entity<CustomerBilling>()
-                .HasKey(c => new {c.CustomerID, c.BillingID});
-            // CustomerShipping CPK
-            modelBuilder.Entity<CustomerShipping>()
-                .HasKey(c => new { c.CustomerID, c.ShippingID});
-            // LocationProducts CPK
-            modelBuilder.Entity<LocationProducts>()
-                .HasKey(c => new { c.LocationID, c.ProductID});
-            // OrderProducts CPK
-            modelBuilder.Entity<OrderProducts>()
-                .HasKey(c => new { c.OrderID, c.ProductID});
-            // DefaultLocations CPK
-            modelBuilder.Entity<DefaultLocation>()
-                .HasKey(c => new { c.CustomerID, c.LocationID });
-
         }
     }
 }

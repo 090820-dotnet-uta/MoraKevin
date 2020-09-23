@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using P0.Models;
 using System.Linq;
+using System.Threading;
 
 namespace P0.DAOs
 {
@@ -12,6 +13,7 @@ namespace P0.DAOs
         {
             DB.LocationProducts.Add(lp);
             DB.SaveChanges();
+            Thread.Sleep(500);
         }
 
         internal static void UpdateLocationProducts(LocationProducts lp, P0Context DB)

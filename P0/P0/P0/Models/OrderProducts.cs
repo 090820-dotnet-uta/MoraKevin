@@ -7,6 +7,7 @@ namespace P0.Models
 {
     public class OrderProducts
     {
+        public int OrderProductsID { get; set; }
         public int OrderID { get; set; }
         public int ProductID { get; set; }
         public int Quantity { get; set; }

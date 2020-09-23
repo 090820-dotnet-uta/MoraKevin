@@ -67,7 +67,8 @@ namespace P0.Migrations
                     ProductID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(nullable: true),
-                    Price = table.Column<string>(nullable: true),
+                    Price = table.Column<int>(nullable: false),
+                    Type = table.Column<string>(nullable: true),
                     Description = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
@@ -96,13 +97,15 @@ namespace P0.Migrations
                 name: "CustomersBilling",
                 columns: table => new
                 {
+                    CustomerBillingID = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     CustomerID = table.Column<int>(nullable: false),
                     BillingID = table.Column<int>(nullable: false),
                     Main = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_CustomersBilling", x => new { x.CustomerID, x.BillingID });
+                    table.PrimaryKey("PK_CustomersBilling", x => x.CustomerBillingID);
                     table.ForeignKey(
                         name: "FK_CustomersBilling_BillingInformation_BillingID",
                         column: x => x.BillingID,
@@ -140,12 +143,14 @@ namespace P0.Migrations
                 name: "DefaultLocations",
                 columns: table => new
                 {
+                    DefaultLocationID = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     CustomerID = table.Column<int>(nullable: false),
                     LocationID = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_DefaultLocations", x => new { x.CustomerID, x.LocationID });
+                    table.PrimaryKey("PK_DefaultLocations", x => x.DefaultLocationID);
                     table.ForeignKey(
                         name: "FK_DefaultLocations_Customers_CustomerID",
                         column: x => x.CustomerID,
@@ -191,13 +196,15 @@ namespace P0.Migrations
                 name: "LocationProducts",
                 columns: table => new
                 {
+                    LocationProductsID = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     LocationID = table.Column<int>(nullable: false),
                     ProductID = table.Column<int>(nullable: false),
                     Inventory = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_LocationProducts", x => new { x.LocationID, x.ProductID });
+                    table.PrimaryKey("PK_LocationProducts", x => x.LocationProductsID);
                     table.ForeignKey(
                         name: "FK_LocationProducts_Locations_LocationID",
                         column: x => x.LocationID,
@@ -216,13 +223,15 @@ namespace P0.Migrations
                 name: "CustomersShipping",
                 columns: table => new
                 {
+                    CustomerShippingID = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     CustomerID = table.Column<int>(nullable: false),
                     ShippingID = table.Column<int>(nullable: false),
                     Main = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_CustomersShipping", x => new { x.CustomerID, x.ShippingID });
+                    table.PrimaryKey("PK_CustomersShipping", x => x.CustomerShippingID);
                     table.ForeignKey(
                         name: "FK_CustomersShipping_Customers_CustomerID",
                         column: x => x.CustomerID,
@@ -241,13 +250,15 @@ namespace P0.Migrations
                 name: "OrderProducts",
                 columns: table => new
                 {
+                    OrderProductsID = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     OrderID = table.Column<int>(nullable: false),
                     ProductID = table.Column<int>(nullable: false),
                     Quantity = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_OrderProducts", x => new { x.OrderID, x.ProductID });
+                    table.PrimaryKey("PK_OrderProducts", x => x.OrderProductsID);
                     table.ForeignKey(
                         name: "FK_OrderProducts_Orders_OrderID",
                         column: x => x.OrderID,
@@ -309,6 +320,11 @@ namespace P0.Migrations
                 table: "LocationProducts",
                 column: "ProductID",
                 unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_OrderProducts_OrderID",
+                table: "OrderProducts",
+                column: "OrderID");
 
             migrationBuilder.CreateIndex(
                 name: "IX_OrderProducts_ProductID",

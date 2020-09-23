@@ -7,6 +7,7 @@ namespace P0.Models
 {
     public class CustomerShipping
     {
+        public int CustomerShippingID { get; set; }
         public int CustomerID { get; set; }
         public int ShippingID { get; set; }
         public string Main { get; set; }

@@ -9,8 +9,8 @@ using P0;
 namespace P0.Migrations
 {
     [DbContext(typeof(P0Context))]
-    [Migration("20200919025526_ProductPriceToInt")]
-    partial class ProductPriceToInt
+    [Migration("20200921161914_initDatabase")]
+    partial class initDatabase
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -82,16 +82,21 @@ namespace P0.Migrations
 
             modelBuilder.Entity("P0.Models.CustomerBilling", b =>
                 {
-                    b.Property<int>("CustomerID")
-                        .HasColumnType("int");
+                    b.Property<int>("CustomerBillingID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<int>("BillingID")
+                        .HasColumnType("int");
+
+                    b.Property<int>("CustomerID")
                         .HasColumnType("int");
 
                     b.Property<string>("Main")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("CustomerID", "BillingID");
+                    b.HasKey("CustomerBillingID");
 
                     b.HasIndex("BillingID")
                         .IsUnique();
@@ -104,16 +109,21 @@ namespace P0.Migrations
 
             modelBuilder.Entity("P0.Models.CustomerShipping", b =>
                 {
-                    b.Property<int>("CustomerID")
-                        .HasColumnType("int");
+                    b.Property<int>("CustomerShippingID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("ShippingID")
+                    b.Property<int>("CustomerID")
                         .HasColumnType("int");
 
                     b.Property<string>("Main")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("CustomerID", "ShippingID");
+                    b.Property<int>("ShippingID")
+                        .HasColumnType("int");
+
+                    b.HasKey("CustomerShippingID");
 
                     b.HasIndex("CustomerID")
                         .IsUnique();
@@ -126,13 +136,18 @@ namespace P0.Migrations
 
             modelBuilder.Entity("P0.Models.DefaultLocation", b =>
                 {
+                    b.Property<int>("DefaultLocationID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
                     b.Property<int>("CustomerID")
                         .HasColumnType("int");
 
                     b.Property<int>("LocationID")
                         .HasColumnType("int");
 
-                    b.HasKey("CustomerID", "LocationID");
+                    b.HasKey("DefaultLocationID");
 
                     b.HasIndex("CustomerID")
                         .IsUnique();
@@ -175,16 +190,21 @@ namespace P0.Migrations
 
             modelBuilder.Entity("P0.Models.LocationProducts", b =>
                 {
+                    b.Property<int>("LocationProductsID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("Inventory")
+                        .HasColumnType("int");
+
                     b.Property<int>("LocationID")
                         .HasColumnType("int");
 
                     b.Property<int>("ProductID")
                         .HasColumnType("int");
 
-                    b.Property<int>("Inventory")
-                        .HasColumnType("int");
-
-                    b.HasKey("LocationID", "ProductID");
+                    b.HasKey("LocationProductsID");
 
                     b.HasIndex("LocationID")
                         .IsUnique();
@@ -224,6 +244,11 @@ namespace P0.Migrations
 
             modelBuilder.Entity("P0.Models.OrderProducts", b =>
                 {
+                    b.Property<int>("OrderProductsID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
                     b.Property<int>("OrderID")
                         .HasColumnType("int");
 
@@ -233,7 +258,9 @@ namespace P0.Migrations
                     b.Property<int>("Quantity")
                         .HasColumnType("int");
 
-                    b.HasKey("OrderID", "ProductID");
+                    b.HasKey("OrderProductsID");
+
+                    b.HasIndex("OrderID");
 
                     b.HasIndex("ProductID")
                         .IsUnique();

@@ -7,6 +7,7 @@ namespace P0.Models
     public class Location
     {
         public int LocationID { get; set; }
+        public string Name { get; set; }
         public int AddressNum { get; set; }
         public string AddressStreet { get; set; }
         public string AddressCity { get; set; }
