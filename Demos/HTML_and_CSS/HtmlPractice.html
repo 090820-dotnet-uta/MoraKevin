@@ -1,0 +1,142 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mark's Practice doc</title>
+    <link rel="stylesheet" type="text/css" href="CssPractice.css" />
+</head>
+
+<body>
+    <!-- Use nth child changes to display children changing. -->
+    <div id="div1" style="background-color: lightblue;">
+        <p>This is a paragraph</p>
+
+        This is typing outside of a paragraph
+        <!--Make sure to finish one element before starting the next-->
+        <p>This is <strong>bold text</p></strong>
+        <p>This is <b>bold</b> text</p>
+        <div>
+            <p class="centeredClass">This is <i>italic</i> text</p>
+            <div>
+                <p>I'm the 3rd child</p>
+                <div>
+                    <p>I'm the 4th child</p>
+                </div>
+            </div>
+        </div>
+
+        <p>This is <mark style="background-color: pink;">highlighted</mark> text</p>
+        <p>This is <strong>bold, <small>small, <span>and green</span></small></strong> text</p>
+        <p>This is <ins>cool bold</ins> text</p>
+        <p>This is <sup>superscript</sup> text</p>
+    </div>
+
+    <h1 id="h1">This is very big</h1>
+    <h2>This isn't quite so big</h2>
+    <h3>This is normal</h3>
+    <h4>this is smaller</h4>
+    <h5>this is small</h5>
+    <h6>this is tiny</h6>
+
+    <a href="http://revature.com">This is a link</a>
+    <br>
+    <img src="jailCell.jpg" width="200px" alt="My Revature image">
+
+    <ul class="unorderedList">
+        <li>bullet 1</li>
+        <li>bullet 2</li>
+        <li>bullet 3</li>
+        <li>bullet 4</li>
+    </ul>
+
+    <ol>
+        <li>number 1</li>
+        <li>number 2</li>
+        <li>number 3</li>
+        <li>number 4</li>
+    </ol>
+
+    <table>
+        <!--this creates the table-->=
+        <thead>
+            <!--this creates the header row-->
+
+            <th>Name</th>
+            <!--this creates each element in the header row-->
+            <th>age</th>
+            <th>height</th>
+        </thead>
+        <tbody>
+            <!--this creates the tables body-->
+            <tr>
+                <!--this creates one row-->
+                <td>Mark</td>
+                <!--this creates each element in the row-->
+                <td>41</td>
+                <td>185cm</td>
+            </tr>
+            <tr>
+                <td>Jery</td>
+                <td>40</td>
+                <td>190cm</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <p>There are many differend characters you can display!</p>
+    <h1>There is the &lt and &#60 and &gt and &#61</h1>
+    <h2>There is the non-breaking space => &nbsp <= </h2>
+            <h3>There is the &#x20B5</h3>
+            <h4>Pi => &#x213C</h4>
+            <h3>&#35</h3>
+
+            <form action="http://revature.com" action="POST">
+                <ul>
+                    <li>
+                        <label for="fName">Name:</label>
+                        <input type="text" id="fName" name="userName">
+                    </li>
+                    <li>
+                        <label for="usersEmail">Email:</label>
+                        <input type="email" id="usersEmail">
+                    </li>
+                    <li>
+                        <input type="submit" value="submit">
+                    </li>
+                </ul>
+            </form>
+
+            <!--a select oprions-->
+            <select name="fname" id="firstName">
+                <option value="Mark is cool">Mark is cool</option>
+                <option value="Mark cant't spell">Mark can't spell</option>
+            </select><br><br>
+
+            <!--Google search form-->
+            <form action="http://www.google.com/search" method="get">
+                <label for="gSearch">Google Search</label>
+                <input type="text" name="q" id="gSearch" />
+                <input type="submit" value="search" />
+            </form>
+
+            <p class="firstLine">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Ducimus, placeat et iure repudiandae facilis ad enim
+                cupiditate unde exercitationem porro laborum perspiciatis,
+                rerum assumenda consequuntur, dolores maxime harum eaque vel?</p>
+
+            <div class="boxAdjustments">Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti
+                voluptates tempora rem quod dolore atque tenetur, delectus quidem ut
+                beatae dolorum repudiandae excepturi eum animi earum accusamus placeat
+                tempore mollitia.</div>
+
+            <!-- specificity example -->
+            <div>
+                <p class="specificityClass" id="specificityId" style="background-color:lightgreen;">This is a
+                    specificity example</p>
+            </div>
+
+
+</body>
+
+</html>

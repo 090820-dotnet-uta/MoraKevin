@@ -1,0 +1,69 @@
+﻿@model IEnumerable<P1.Models.Shipping>
+
+@{
+    ViewData["Title"] = "ShippingOptions";
+    Layout = "~/Views/Shared/_StoreHomeLayout.cshtml";
+}
+
+<h1>Shipping Options</h1>
+<p>Choose a saved address or add a new address to continue checkout.</p>
+<p>Your saved addresses:</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Address Number
+            </th>
+            <th>
+                Street Name
+            </th>
+            <th>
+                City
+            </th>
+            <th>
+                State
+            </th>
+            <th>
+                Zip Code
+            </th>
+            @*<th></th>*@
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AddressNum)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AddressStreet)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AddressCity)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AddressState)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AddressZipCode)
+                </td>
+                <td>
+                    | <a asp-controller="Shipping" asp-action="ChooseAddress" asp-route-id="@item.ShippingID">Choose Address</a> |
+                </td>
+                @*<td>
+                        <a asp-action="Edit" asp-route-id="@item.ShippingID">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.ShippingID">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.ShippingID">Delete</a>
+                    </td>*@
+            </tr>
+        }
+    </tbody>
+</table>
+<br />
+<p>
+    Or:
+</p>
+<p>
+    <a asp-controller="Shipping" asp-action="Create">Add New Address</a>
+</p>

@@ -1,0 +1,52 @@
+﻿@model IEnumerable<P1.Models.Order>
+
+@{
+    ViewData["Title"] = "PastOrders";
+    Layout = "~/Views/Shared/_AccountLayout.cshtml";
+}
+
+<h1>Past Orders</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Ordered By
+            </th>
+            <th>
+                Ordered From
+            </th>
+            <th>
+                Order Date/Time
+            </th>
+            <th>
+                Distinct Products Bought
+            </th>
+            <th>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Customer.FirstName) @Html.DisplayFor(modelItem => item.Customer.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Location.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OrderTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ShoppingCart.Count)
+            </td>
+            <td>
+            <td>
+                <a asp-controller="Orders" asp-action="GetPastOrderDetails" asp-route-id="@item.OrderID">Details</a>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>

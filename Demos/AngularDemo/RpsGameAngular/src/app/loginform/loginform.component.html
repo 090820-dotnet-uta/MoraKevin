@@ -1,0 +1,15 @@
+<br>
+<form [formGroup]="loginForm" novalidate>
+  <div>
+    <label for="userName">Please Type your name to log in.</label>
+    <input formControlName="userName" type="text" placeholder="Name" name="userName" id="userName" required>
+  </div>
+  <div>
+    <button type="submit" (click)="onSubmit()">Login</button>
+  </div>
+</form>
+<!-- <h2>{{name1}}</h2>
+<h2>{{userName}}</h2> -->
+<pre>{{loginForm.value | json}}</pre>
+
+<app-player-list></app-player-list>

@@ -37,8 +37,8 @@ namespace P0.Migrations
                     b.Property<string>("AddressStreet")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("AddressZipCode")
-                        .HasColumnType("int");
+                    b.Property<string>("AddressZipCode")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("CardNumber")
                         .HasColumnType("nvarchar(max)");
@@ -223,6 +223,9 @@ namespace P0.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<int>("BillingID")
+                        .HasColumnType("int");
+
                     b.Property<int>("CustomerID")
                         .HasColumnType("int");
 
@@ -232,13 +235,20 @@ namespace P0.Migrations
                     b.Property<string>("OrderTime")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("ShippingID")
+                        .HasColumnType("int");
+
                     b.HasKey("OrderID");
+
+                    b.HasIndex("BillingID");
 
                     b.HasIndex("CustomerID")
                         .IsUnique();
 
                     b.HasIndex("LocationID")
                         .IsUnique();
+
+                    b.HasIndex("ShippingID");
 
                     b.ToTable("Orders");
                 });
@@ -312,8 +322,8 @@ namespace P0.Migrations
                     b.Property<string>("AddressStreet")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("AddressZipCode")
-                        .HasColumnType("int");
+                    b.Property<string>("AddressZipCode")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ShippingID");
 
@@ -400,6 +410,12 @@ namespace P0.Migrations
 
             modelBuilder.Entity("P0.Models.Order", b =>
                 {
+                    b.HasOne("P0.Models.Billing", "Billing")
+                        .WithMany()
+                        .HasForeignKey("BillingID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("P0.Models.Customer", "Customer")
                         .WithOne("Order")
                         .HasForeignKey("P0.Models.Order", "CustomerID")
@@ -409,6 +425,12 @@ namespace P0.Migrations
                     b.HasOne("P0.Models.Location", "Location")
                         .WithOne("Order")
                         .HasForeignKey("P0.Models.Order", "LocationID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("P0.Models.Shipping", "Shipping")
+                        .WithMany()
+                        .HasForeignKey("ShippingID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

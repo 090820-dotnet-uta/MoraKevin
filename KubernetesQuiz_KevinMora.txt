@@ -1,0 +1,67 @@
+Question 1:
+1. Which of the following controllers cannot have cloud provider dependencies?
+	Source: D_33_.NET_KubernetesFundamentals.pdf Slides 13
+a) node controller
+b) endpoints controller (correct)
+c) route controller
+d) service controller 
+--------------------------------------------------------------------------------------------------
+
+2. Which of the following fields do all Kubernetes resources need to have defined?
+	Source: D_33_.NET_KubernetesKubeCtlAndDeployment.pdf Slides 10
+a) apiVersion (correct)
+b) rules
+c) serviceName
+d) servicePort
+--------------------------------------------------------------------------------------------------
+
+3. Which of the following facilitates the communication between a node and the Master?
+	Source: https://kubernetes.io/docs/tutorials/kubernetes-basics/create-cluster/cluster-intro/
+a) kube-controller-manager
+b) cloud-controller manager
+c) kube-scheduler
+d) kube-api-server (correct)
+-------------------------------------------------------------------------------------------------
+
+4. Which of the following does the "kubectl create deployment" command NOT do?
+	Source: https://kubernetes.io/docs/tutorials/kubernetes-basics/deploy-app/deploy-interactive/ (Step 2/3)
+a) search for a suitable node where an instance of the application can run
+b) configure the cluster to reschedule the instance on a new Node when needed
+c) create a connection between the host and the Kubernetes cluster (correct)
+d) schedule the application to run on a suitable Node
+
+--------------------------------------------------------------------------------------------------
+
+5. Which of the following is the atomic unit on the Kubernetes Platform?
+	Source: https://kubernetes.io/docs/tutorials/kubernetes-basics/explore/explore-intro/
+a) node
+b) pod (correct)
+c) minikube
+d) kubelet
+--------------------------------------------------------------------------------------------------
+
+6. What is the correct format for writing a command to apply a new label?
+	Source: https://kubernetes.io/docs/tutorials/kubernetes-basics/expose/expose-interactive/ (Step 2/3)
+a) label [object type] [object name] [new label] (correct)
+b) label [object type] [new label] [object name] 
+c) label [object name] [object type] [new label]  
+d) label [new label] [object type] [object name]
+--------------------------------------------------------------------------------------------------
+
+7. What does scaling do?
+	Source: https://kubernetes.io/docs/tutorials/kubernetes-basics/scale/scale-intro/
+a) Change the number of nodes avaiable to run pods on
+b) Change the number of services across the cluster
+c) Change the number of kube-api-server instances
+d) Change the number of replicated pods in a Depolyment (correct)
+--------------------------------------------------------------------------------------------------
+
+8. Which of the following functionalities is NOT allowed by rolling updates?
+	Source: https://kubernetes.io/docs/tutorials/kubernetes-basics/update/update-intro/
+a) Promote an application from one environment to another
+b) Rollback to previous versions
+c) Designate objects for development, test, and production (correct)
+d) Continuous Integration and Continuous Delivery of applications with zero downtime
+
+
+

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Auto Complete</title>
+</head>
+<body>
+    <input type="text" id="selector">
+    <script>
+        var availableTags = [
+            "ActionScript",
+            "AppleScript",
+            "Asp",
+            "BASIC",
+            "C",
+            "C++",
+            "Clojure",
+            "COBOL",
+            "ColdFusion",
+            "Cycle",
+            "Erlang",
+            "Fortran",
+            "Groovy",
+            "Haskell",
+            "Java",
+            "JavaScript",
+            "Lisp",
+            "Perl",
+            "PHP",
+            "Python",
+            "Ruby",
+            "Scala",
+            "Scheme"];
+        $("#selector").autocomplete({
+            source: availableTags
+        });
+
+        $('#selector').change(function () {
+            alert($('#selector').val());
+        });
+    </script>
+</body>
+
+</html>
+

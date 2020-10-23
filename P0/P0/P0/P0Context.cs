@@ -41,7 +41,7 @@ namespace P0
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer("Data Source=DESKTOP-1N48109;Initial Catalog=P0;Integrated Security=True");
+                optionsBuilder.UseSqlServer("Data Source=kevinmora.database.windows.net;Initial Catalog=P1;User ID=kevinmora;Password=GdypKK27!!;Connect Timeout=60;Encrypt=True;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False;");
                 base.OnConfiguring(optionsBuilder);
             }
         }

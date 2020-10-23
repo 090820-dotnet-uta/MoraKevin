@@ -11,25 +11,15 @@ using System.Data;
 
 namespace P0.Utilities
 {
-    class DatabaseControl
+    public class DatabaseControl
     {
         /// <summary>
         /// Creates a new entries in the Customers Table and UserAccounts Table for new Users
         /// </summary>
         /// <param name="Account"></param>
-        internal static void RegisterAccount(UserAccount Account)
+        public static void RegisterAccount(UserAccount Account, Customer c)
         {
 
-            Console.WriteLine("\nFirst Name:");
-            string fn = Console.ReadLine();
-            Console.WriteLine("\nLast Name:");
-            string ln = Console.ReadLine();
-
-            Customer c = new Customer
-            {
-                FirstName = fn,
-                LastName = ln
-            };
             using (var DB = new P0Context())
             {
                 CustomerDAO.AddCustomer(c, DB);

@@ -1,0 +1,48 @@
+﻿@model P1.Models.Location
+
+@{
+    ViewData["Title"] = "GetLocation";
+    Layout = "~/Views/Shared/_StoreHomeLayout.cshtml";
+}
+
+<h1>Welcome to @Html.DisplayFor(model => model.Name)!</h1>
+
+<div>
+    <h4>@Html.DisplayFor(model => model.Description)</h4>
+    <br />
+    <p class="text-info">@ViewData["itemAdded"]</p>
+    <p class="text-info">@ViewData["orderPlaced"]</p>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.AddressNum)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.AddressNum)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.AddressStreet)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.AddressStreet)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.AddressCity)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.AddressCity)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.AddressState)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.AddressState)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.AddressZipCode)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.AddressZipCode)
+        </dd>
+    </dl>
+</div>

@@ -54,7 +54,19 @@ namespace P0.Utilities
             if (UserChoice == "REGISTER")
             {
                 UserAccount Account = DisplayRegistrationPage();
-                DatabaseControl.RegisterAccount(Account);
+                
+                Console.WriteLine("\nFirst Name:");
+                string fn = Console.ReadLine();
+                Console.WriteLine("\nLast Name:");
+                string ln = Console.ReadLine();
+
+                Customer c = new Customer
+                {
+                    FirstName = fn,
+                    LastName = ln
+                };
+
+                DatabaseControl.RegisterAccount(Account, c);
                 CurrentCustomer = DatabaseControl.GetCurrentCustomer(Account);
             }
             else if (UserChoice == "LOG IN")
@@ -337,7 +349,7 @@ namespace P0.Utilities
             Console.WriteLine("What would you like to do?");
             Console.WriteLine("\n1. View Products");
             Console.WriteLine("2. View Shopping Cart");
-            Console.WriteLine("3. View Past Order From This Location");
+            Console.WriteLine("3. View Past Orders From This Location");
             Console.WriteLine("4. Checkout");
             Console.WriteLine("5. Logout");
 
@@ -536,7 +548,7 @@ namespace P0.Utilities
 
             if (OrdersByCustomer.Count == 0)
             {
-                Console.WriteLine("\nThere are currently no orders placed!");
+                Console.WriteLine("\nYou do have not placed any orders!");
                 Console.WriteLine("Hit any key to go back.");
                 Console.ReadLine();
 
@@ -684,7 +696,7 @@ namespace P0.Utilities
 
         internal static Billing DisplayGetBillingInformation()
         {
-            Console.WriteLine("\nEnter Card Number:");
+            /*Console.WriteLine("\nEnter Card Number:");
             string CardNum = Console.ReadLine();
 
             Console.WriteLine("\nEnter the Full Name on the Card");
@@ -728,6 +740,8 @@ namespace P0.Utilities
                 AddressZipCode = ZipCode
             };
             return CardInfoEntered;
+        */
+            throw new NotImplementedException();
         }
 
 

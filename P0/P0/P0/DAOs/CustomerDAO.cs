@@ -7,9 +7,9 @@ using P0.Models;
 
 namespace P0.DAOs
 {
-    class CustomerDAO
+    public class CustomerDAO
     {
-        internal static void AddCustomer(Customer c, P0Context DB)
+        public static void AddCustomer(Customer c, P0Context DB)
         {
             DB.Customers.Add(c);
             DB.SaveChanges();
@@ -27,7 +27,7 @@ namespace P0.DAOs
             DB.SaveChanges();
         }
 
-        internal static void LoadCustomersList(P0Context DB)
+        public static void LoadCustomersList(P0Context DB)
         {
             DB.CustomersList = DB.Customers.ToList();
         }

@@ -1,0 +1,83 @@
+﻿@model P1.Models.Order
+
+@{
+    ViewData["Title"] = "PastOrderDetails";
+    Layout = "~/Views/Shared/_AccountLayout.cshtml";
+}
+
+<h1>Past Order Details</h1>
+
+<div>
+    <h4> Order made on @Model.OrderTime</h4>
+    <hr />
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    Products
+                </th>
+                <th>
+                    Price
+                </th>
+                <th>
+                    Description
+                </th>
+                <th>
+                    Quantity
+                </th>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.ShoppingCart)
+            {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Quantity)
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<div>
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Customer):
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Customer.FirstName) @Html.DisplayFor(model => model.Customer.LastName)
+        </dd>
+        <dt class="col-sm-2">
+            Ordered From:
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Location.Name):
+            @Html.DisplayFor(model => model.Location.AddressNum) @Html.DisplayFor(model => model.Location.AddressStreet)
+            @Html.DisplayFor(model => model.Location.AddressCity) @Html.DisplayFor(model => model.Location.AddressState)
+            @Html.DisplayFor(model => model.Location.AddressZipCode)
+        </dd>
+        <dt class="col-sm-2">
+            Card Used:
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Billing.CardNumber)
+        </dd>
+        <dt class="col-sm-2">
+            Shipped To:
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Shipping.AddressNum) @Html.DisplayFor(model => model.Shipping.AddressStreet)
+            @Html.DisplayFor(model => model.Shipping.AddressCity) @Html.DisplayFor(model => model.Shipping.AddressState)
+            @Html.DisplayFor(model => model.Shipping.AddressZipCode)
+        </dd>
+    </dl>
+</div>

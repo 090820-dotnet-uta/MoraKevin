@@ -16,7 +16,7 @@ namespace P0.Models
         public string AddressStreet { get; set; }
         public string AddressCity { get; set; }
         public string AddressState { get; set; }
-        public int AddressZipCode { get; set; }
+        public string AddressZipCode { get; set; }
         public CustomerBilling CustomerBilling { get; set; }
     }
 }

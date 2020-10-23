@@ -1,0 +1,13 @@
+﻿@model P1.Models.ProductInStock
+
+@{
+    ViewData["Title"] = "ProductAlreadyInCart";
+    Layout = "~/Views/Shared/_StoreHomeLayout.cshtml";
+}
+
+<div>
+    <h4>@Html.DisplayFor(model => model.Name) is already in your Shopping Cart!</h4>
+    <hr />
+    <p> Head to your shopping cart if you wish to change the number of items.</p>
+</div>
+

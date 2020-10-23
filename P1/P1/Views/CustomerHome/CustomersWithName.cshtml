@@ -1,0 +1,39 @@
+﻿@model IEnumerable<P1.Models.UserAccount>
+
+@{
+    ViewData["Title"] = "CustomersWithName";
+    Layout = "~/Views/Shared/_AccountLayout.cshtml";
+}
+
+<h1>Customers</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                First Name
+            </th>
+            <th>
+                Last Name
+            </th>
+            <th>
+                Username
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Customer.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Customer.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Username)
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

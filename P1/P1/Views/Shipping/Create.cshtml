@@ -1,0 +1,46 @@
+﻿@model P1.Models.Shipping
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_StoreHomeLayout.cshtml";
+}
+
+<h1>Add New Address</h1>
+
+<h4>Enter all of the information below</h4>
+<hr />
+<p class="text-danger">@ViewData["invalidAddress"]</p>
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label class="control-label">Address Number</label>
+                <input id="num" name="num" type="text" maxlength="5" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="AddressStreet" class="control-label">Street Name</label>
+                <input asp-for="AddressStreet" class="form-control" />
+                <span asp-validation-for="AddressStreet" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AddressCity" class="control-label">City</label>
+                <input asp-for="AddressCity" class="form-control" />
+                <span asp-validation-for="AddressCity" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AddressState" class="control-label">State</label>
+                <input asp-for="AddressState" class="form-control" />
+                <span asp-validation-for="AddressState" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Zip Code</label>
+                <input id="zip" name="zip" type="text" maxlength="5" class="form-control" />
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+

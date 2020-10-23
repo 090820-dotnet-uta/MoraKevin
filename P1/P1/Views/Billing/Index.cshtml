@@ -1,0 +1,90 @@
+﻿@model IEnumerable<P1.Models.Billing>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_StoreHomeLayout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NameOnCard)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CardNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ExpirationMonth)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ExpirationYear)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SecurityCode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AddressNum)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AddressStreet)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AddressCity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AddressState)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AddressZipCode)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NameOnCard)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CardNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ExpirationMonth)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ExpirationYear)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SecurityCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AddressNum)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AddressStreet)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AddressCity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AddressState)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AddressZipCode)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.BillingID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.BillingID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.BillingID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

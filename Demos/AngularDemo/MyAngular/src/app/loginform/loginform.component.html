@@ -1,0 +1,13 @@
+<p>loginform works!</p>
+<form [formGroup] = "loginForm" (ngSubmit)="onSubmit()">
+    <div>
+    <label for = "username">Please Type your name to login.</label>
+    </div>
+    <div>
+    <input formControlName="userName" type="text" placeholder="Name" name="userName" id="userName" required>
+    </div>
+    <br>
+    <div><button type="submit">Login</button></div>
+</form>
+<pre>{{loginForm.value | json}}</pre>
+<h2>{{this.player.Name}}</h2>

@@ -1,0 +1,100 @@
+
+/* All h1 elements will have blue text and be of sixe 20 pixels */
+h1 {
+    /* color: blue;
+    font-size: 20px; */
+}
+
+/* all paragraph text will be red */
+p{
+    /* color: red; */
+}
+
+/* OVERRIDDEN BY INLINE STYLING. Any element with id div1 will have putple text */
+#div1{
+    /* color: purple; */
+}
+
+/* and h1 id will have this style */
+#h1{
+    /* margin: 10px;
+    border: red;
+    border-style: dotted;
+    width: 200px; */
+}
+
+/* any element with class 'centeredClass' will pop to the center and change color to grey whe hovered over */
+.centeredClass:hover{
+    /* text-align: center;
+    color: grey; */
+}
+
+/* any 6th nested paragraph element of any other 
+element will have 20pixel, brown padding thats 20%
+of the page width of hte page and have white text that turns black when you hover over it.   */
+/* TRY ADDING HOVER TO THIS! */
+p:nth-child(4){
+    /* padding: 20px;
+    background: brown;
+    color: white;
+    text-align: center;
+    width: 20%; */
+}
+p:nth-child(7):hover{
+    /* color: black; */
+}
+
+/* hide the list when you hover over it. 
+The whole page changes formet. */
+ul.unorderedList:hover{
+    /* display: none; */
+}
+
+/* changes the first line of a paragraph pink */
+p.firstLine::first-line{
+    /* color: pink; */
+}
+
+/* makes any tr child of a tbody royalblue color text*/
+tbody > tr {
+    /* color: royalblue; */
+}
+
+/* the first tr after a tr will have a black background */
+tr + tr{
+    /* background-color: black; */
+}
+
+.boxAdjustments{
+    /* background-color: lightcoral;
+    color:white;
+    width: 300px;
+    padding: 20px;
+    border: 5px dashed black;
+    background-clip: content-box;
+    box-shadow: 0 0 0 20 black;
+    margin: 50px ; */
+}
+
+/* specificity example 
+the #id wins bc it's the most specific.
+the inline wins over all bc its closest to the element.*/
+#specificityId {
+    /* background-color: red; */
+}
+
+div {
+    /* background-color: whitesmoke; */
+}
+
+.specificityClass {
+    /* background-color: brown; */
+}
+
+
+
+
+
+
+
+

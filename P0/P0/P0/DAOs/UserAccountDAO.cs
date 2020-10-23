@@ -6,9 +6,9 @@ using P0.Models;
 
 namespace P0.DAOs
 {
-    class UserAccountDAO
+    public class UserAccountDAO
     {
-        internal static void AddUserAccount(UserAccount user, P0Context DB)
+        public static void AddUserAccount(UserAccount user, P0Context DB)
         {
             DB.UserAccounts.Add(user);
             DB.SaveChanges();
@@ -26,7 +26,7 @@ namespace P0.DAOs
             DB.SaveChanges();
         }
 
-        internal static void LoadUserAccountsList(P0Context DB)
+        public static void LoadUserAccountsList(P0Context DB)
         {
             DB.UserAccountsList =  DB.UserAccounts.ToList();
         }
